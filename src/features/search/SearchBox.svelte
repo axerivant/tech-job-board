@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class={`w-8/12 h-12 p-3 border bg-base-600 border-accent-300 rounded-sm flex justify-between items-center transition-all
+	class={`h-12 p-3 border bg-base-600 border-accent-300 rounded-sm flex justify-between items-center transition-all
     ${isFocused && 'brightness-[120%]'}`}
 >
 	<input
