@@ -4,7 +4,7 @@
 
 	export let result: SearchResult
 
-	const { title, skills, brief, location, compensation, postingID } = result
+	const { title, skills, brief, location, compensation, postingID, employer, isSaved } = result
 </script>
 
 <button
@@ -13,7 +13,10 @@
 >
 	<div class="flex flex-col gap-6 w-9/12">
 		<div class="flex flex-col gap-3">
-			<Title {title} />
+			<div class="flex gap-3 items-center">
+				<Title {title} />
+				<p class="text-base-300 text-lg">{employer}</p>
+			</div>
 			<SkillsList {skills} />
 		</div>
 		<Brief {brief} />
@@ -24,8 +27,12 @@
 			<Attribute type="compensation" value={compensation} />
 		</div>
 		<div class="flex gap-3">
-			<Action type="save" />
-			<Action type="hide" />
+			{#if isSaved}
+				<Action type="un-save" />
+			{:else}
+				<Action type="save" />
+				<Action type="hide" />
+			{/if}
 		</div>
 	</div>
 </button>
